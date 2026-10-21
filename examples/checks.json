@@ -1,0 +1,12 @@
+{
+  "old_facts_retained": 18,
+  "new_facts_added": 9,
+  "injected_conflict_guard": {
+    "status": "needs_confirmation",
+    "target_unchanged": true,
+    "cloud_call": false,
+    "real_document_conflict": false
+  },
+  "readding_old_excerpt_does_not_rollback": true,
+  "scope": "历史本地检查记录。注入冲突不是真实矛盾文档的模型判断测试。"
+}

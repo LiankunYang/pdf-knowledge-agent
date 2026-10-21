@@ -1,0 +1,10 @@
+deepagents==0.7.28
+langchain==1.4.6
+langchain-deepseek==1.1.1
+python-dotenv==1.2.4
+pypdf==6.21.1
+Markdown==3.11.1
+nbformat==5.11.1
+ipykernel==7.4.0
+PyMuPDF==2.0
+fonttools==4.67.0

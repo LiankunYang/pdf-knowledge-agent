@@ -1,0 +1,308 @@
+{
+  "record_type": "existing_run_excerpts",
+  "note": "从已有运行记录中选取动作、判断与保存结果；未重新请求模型。原日志的工具返回正文和本机路径未公开。",
+  "initial_library": "维护实验开始前已有一篇NST Carbomig 2N知识页。",
+  "runs": [
+    {
+      "case": "管材单页摘录",
+      "source_id": "pipe",
+      "run_id": "20261021_102959_73ea29",
+      "source_sha256": "520b83cd2053155698ff8ff3eb8b4f4a7293964acbe36b0289a3f028e4c6c9e1",
+      "source_pages": 1,
+      "status": "new",
+      "model": "deepseek-flash",
+      "actual_cloud_run": true,
+      "page_id": "K-520b83cd20531556",
+      "revision": 1,
+      "fact_count": 18,
+      "related_page_ids": [
+        "K-10a789bc60410311"
+      ],
+      "decision_reason": "检索未发现同一出具方或同一证书编号的旧页；唯一候选为 NST 焊丝证书（10972205，炉号 114000），出具方、编号、产品与炉号均不同，故新建独立页，仅作主题相关关联。",
+      "change_summary": [
+        "新建知识页：Salzgitter Mannesmann Stainless Tubes Italia Srl 检验证书 4-12-12567-rev.01（EN 10204 3.1）",
+        "记录证书号、买方/订单号、SMST-Item 与 Part No SS-T8-S-049-20D、产品描述、适用标准 ASME SA 213 10 / ASTM A 213 10a / ASTM A 269 10、牌号 TP316/TP316L、公差 A 213/A 1016 AW",
+        "记录炉号 QM414、质量批号 QL40012275 的公制与英制尺寸及化学成分要求区间与实测值",
+        "待确认/限制：本次仅含第 1/4 页，力学性能与其余试验结果未提供；Pieces/Weight/Length 列无可见数值；Melting Process 空白；标记占位符未填值",
+        "关联 K-10a789bc60410311 仅因同属 EN 10204 3.1 材料证书主题，非同一产品或批次"
+      ],
+      "tool_path": [
+        "read_pdf",
+        "search_knowledge",
+        "search_knowledge",
+        "search_knowledge",
+        "search_knowledge",
+        "read_library_page",
+        "commit_page"
+      ],
+      "save_rejections": 0,
+      "trace_excerpt": [
+        {
+          "tool": "read_pdf"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "4-12-12567-rev.01 Salzgitter Mannesmann Stainless Tubes Italia",
+          "reason": "按证书编号与出具方查找是否已有同一资料"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "QM414 炉号 TP316L 无缝不锈钢管",
+          "reason": "按炉号与产品查找相关旧页"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "SS-T8-S-049-20D SWAGELOK 管材 检验证书",
+          "reason": "按零件号查找是否有同一产品的旧页"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "EN 10204 3.1 无缝不锈钢管 ASTM A213 TP316 检验证书",
+          "reason": "按标准与产品类型查找主题相关旧页"
+        },
+        {
+          "tool": "read_library_page",
+          "reason": "确认该候选页的出具方、编号与对象，判断是否与本次证书相关",
+          "page_id": "K-10a789bc60410311"
+        },
+        {
+          "tool": "commit_page",
+          "action": "new",
+          "target_page_id": "",
+          "decision_reason": "检索未发现同一出具方或同一证书编号的旧页；唯一候选为 NST 焊丝证书（10972205，炉号 114000），出具方、编号、产品与炉号均不同，故新建独立页，仅作主题相关关联。"
+        }
+      ],
+      "summary_sha256": "89e1399eb59f0fcf884d7c12079e6772599001d7ea51243ea64c80f158acfe3d",
+      "original_log_sha256": "9cad4caeced9aedb3c6c2bf2b2f22dd43292032846ada3b656b431c1a4ee6e9f"
+    },
+    {
+      "case": "同源完整管材证书",
+      "source_id": "pipe",
+      "run_id": "20261021_103022_c1969e",
+      "source_sha256": "53626d24ebae5f40b64fd0325b5330f27608406a824faacf9d041c28e5b5d355",
+      "source_pages": 4,
+      "status": "update",
+      "model": "deepseek-flash",
+      "actual_cloud_run": true,
+      "page_id": "K-520b83cd20531556",
+      "revision": 2,
+      "fact_count": 27,
+      "related_page_ids": [
+        "K-10a789bc60410311"
+      ],
+      "decision_reason": "本次PDF出具方、证书号4-12-12567-rev.01、炉号QM414、质量批号QL40012275、SMST-Item与Part No均与旧页K-520b83cd20531556一致，本次为完整4页，补齐旧页缺失的第2–4页且无冲突，故更新原页。",
+      "change_summary": [
+        "保留旧页全部18条事实及其key与值（证书类型、编号、买方、订单号、产品描述、标准、牌号、公差、尺寸、熔炼分析、标记等），本次4页PDF均能找到原文支持",
+        "新增产品分析（QL40012275 / 样品40101388）化学成分实测值",
+        "新增室温纵向拉伸试验要求与两件样品实测值（YS 0.2%、U.T.S.、EL 2\"）",
+        "新增HRB硬度试验要求90 max与两件样品结果及平均值",
+        "新增扩口试验与压扁试验的样品编号及OK结果",
+        "新增热处理1958° C、PMI防混料核查、外观尺寸检查、涡流检测ASTM A 1016、腐蚀试验声明、spec. 00333 rev. B、RoHS/ELV等声明",
+        "新增签发人Nicolò Rossi与Date of Edition 02/04/2012",
+        "仍待确认/限制：Pieces/Weight/Length列无可见数值；Melting Process空白；标记占位符未填值；签章无法从文字层确认",
+        "关联K-10a789bc60410311仅因同属EN 10204 3.1材料证书主题，非同一产品或批次"
+      ],
+      "tool_path": [
+        "read_pdf",
+        "search_knowledge",
+        "search_knowledge",
+        "read_library_page",
+        "commit_page",
+        "read_library_page",
+        "commit_page"
+      ],
+      "save_rejections": 1,
+      "trace_excerpt": [
+        {
+          "tool": "read_pdf"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "4-12-12567-rev.01 Salzgitter Mannesmann Stainless Tubes Italia inspection certificate",
+          "reason": "按证书编号与出具方查找是否已有同一资料"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "QM414 QL40012275 TP316 TP316L 无缝不锈钢管",
+          "reason": "按炉号、质量批号与产品查找相关旧页"
+        },
+        {
+          "tool": "read_library_page",
+          "reason": "核对旧页身份、旧facts与正文，判断本次4页PDF是否为同一证书的补充",
+          "page_id": "K-520b83cd20531556"
+        },
+        {
+          "tool": "commit_page",
+          "action": "update",
+          "target_page_id": "K-520b83cd20531556",
+          "decision_reason": "本次PDF出具方、证书号4-12-12567-rev.01、炉号QM414、质量批号QL40012275、SMST-Item与Part No均与旧页K-520b83cd20531556一致，本次为完整4页，补齐旧页缺失的第2–4页且无冲突，故更新原页。"
+        },
+        {
+          "event": "maintenance_rejected",
+          "errors": [
+            "关联旧页前需读取该页正文。"
+          ]
+        },
+        {
+          "tool": "read_library_page",
+          "reason": "提交要求关联前读取该页正文，确认其仅为主题相关而非同一资料",
+          "page_id": "K-10a789bc60410311"
+        },
+        {
+          "tool": "commit_page",
+          "action": "update",
+          "target_page_id": "K-520b83cd20531556",
+          "decision_reason": "本次PDF出具方、证书号4-12-12567-rev.01、炉号QM414、质量批号QL40012275、SMST-Item与Part No均与旧页K-520b83cd20531556一致，本次为完整4页，补齐旧页缺失的第2–4页且无冲突，故更新原页。"
+        }
+      ],
+      "summary_sha256": "60531f1bf2bb4fc75ca4802e4e67607569928a197f1340351ee5f32461e01d23",
+      "original_log_sha256": "0fec19eddc7b6e846542e971f7f9a1f87ec3887601d0eede68ca46aed28e9029"
+    },
+    {
+      "case": "另一份WCB材料证书",
+      "source_id": "wcb",
+      "run_id": "20261021_103106_31846a",
+      "source_sha256": "35b0dfbb31fda6312ae7e8b3490ac83fbce20e6100fec50713890761974991ee",
+      "source_pages": 2,
+      "status": "new",
+      "model": "deepseek-flash",
+      "actual_cloud_run": true,
+      "page_id": "K-35b0dfbb31fda631",
+      "revision": 1,
+      "fact_count": 19,
+      "related_page_ids": [
+        "K-520b83cd20531556",
+        "K-10a789bc60410311"
+      ],
+      "decision_reason": "检索未见证书号 20150410002-1/-2、炉号 HM305/HM105 或订单 HM-GXN-T-030615 的旧页；已读的两个候选页出具方、证书号与对象均不同，仅同属 EN 10204 3.1 材料证书主题，故新建独立页并关联。",
+      "change_summary": [
+        "新建知识页：Huafu Hardware & Plastic Products Co. Ltd. 出具的 EN 10204 3.1 材料试验证书，含 20150410002-1 与 20150410002-2 两页",
+        "记录客户 Ningjin Huamei Machinery Co., Ltd.、零件 WCB Valve Body、订单 HM-GXN-T-030615、签发日期 2015-4-10、材料 ASTM A216-WCB",
+        "记录化学成分规格上限与炉号 HM305、HM105 的实测值",
+        "记录 Article/尺寸/数量清单（第1页7项、第2页2项）",
+        "记录力学性能要求（485-655 N/mm2、≥250 N/mm2、≥22%、≥35%）与两炉号实测值",
+        "记录 PED Annex I Section 4.3 / TUV Rheinland 证书号 01 202 ROC/Q-09 0201 声明与客户要求条件声明",
+        "待确认/限制：硬度、冲击能量、Rp1.0、热处理温度与保温时间栏空白；Pattern no 为 ------；QTY 单位与试样对应关系未说明；签章无法从文字层确认",
+        "关联 K-520b83cd20531556 与 K-10a789bc60410311 仅因同属 EN 10204 3.1 材料证书主题，出具方、证书号与产品均不同，非同一产品或批次"
+      ],
+      "tool_path": [
+        "read_pdf",
+        "search_knowledge",
+        "search_knowledge",
+        "search_knowledge",
+        "search_knowledge",
+        "read_library_page",
+        "read_library_page",
+        "commit_page"
+      ],
+      "save_rejections": 0,
+      "trace_excerpt": [
+        {
+          "tool": "read_pdf"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "20150410002 Huafu Hardware WCB Valve Body",
+          "reason": "按证书号与出具方查找是否已有同一资料"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "A216-WCB 材料试验证书 华美机械 阀体",
+          "reason": "按产品与主题查找相关旧页"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "HM305 HM105 炉号 化学成分 拉伸",
+          "reason": "按炉号查找是否已有同炉次记录"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "Ningjin Huamei 宁津华美 HM-GXN-T-030615",
+          "reason": "按采购订单号与客户名查找旧页"
+        },
+        {
+          "tool": "read_library_page",
+          "reason": "确认该EN 10204 3.1证书页是否与本次WCB证书同一资料",
+          "page_id": "K-520b83cd20531556"
+        },
+        {
+          "tool": "read_library_page",
+          "reason": "确认该焊丝证书页是否与本次WCB证书同一资料",
+          "page_id": "K-10a789bc60410311"
+        },
+        {
+          "tool": "commit_page",
+          "action": "new",
+          "target_page_id": "",
+          "decision_reason": "检索未见证书号 20150410002-1/-2、炉号 HM305/HM105 或订单 HM-GXN-T-030615 的旧页；已读的两个候选页出具方、证书号与对象均不同，仅同属 EN 10204 3.1 材料证书主题，故新建独立页并关联。"
+        }
+      ],
+      "summary_sha256": "080edae994c5b0b67551b3460d98789c917ce148908fb563af20d7897b18a7df",
+      "original_log_sha256": "da0a7bbf01f5850ce8b9e3a840a14484fcb55848a5d31eff1b3a803597163ac7"
+    },
+    {
+      "case": "NST 3N新焊丝证书",
+      "source_id": "nst3n",
+      "run_id": "20261021_120234_727ba5",
+      "source_sha256": "210e8871080baaa59c541c2c52578759afcc1d2fa8a25fc66a8cded465e91466",
+      "source_pages": 1,
+      "status": "new",
+      "model": "deepseek-flash",
+      "actual_cloud_run": true,
+      "page_id": "K-210e8871080baaa5",
+      "revision": 1,
+      "fact_count": 13,
+      "related_page_ids": [
+        "K-10a789bc60410311"
+      ],
+      "decision_reason": "本次证书号 1001378235、产品 NST Carbomig 3N、炉号 878730 与库中 NST Carbomig 2N（10972205、炉号 114000）均不一致，无同身份旧页，故新建并仅作同出具方同系列关联。",
+      "change_summary": [
+        "新建 NST Carbomig 3N 证书 1001378235 知识页，记录证书/制造日期、订单号、产品与标准分类、四种直径包装规格、炉号 878730 的 14 元素化学成分、M21 与 CO2 两种保护气体的典型力学性能及 DoP/EN 13479 等标识与 COMMENT 声明。",
+        "关联 NST Carbomig 2N 证书 10972205 页，仅说明同出具方同系列，未合并或覆盖其数据。",
+        "待确认/未明确：化学成分单位与基准、P.L.W./D-300 与括号重量关系、0035 系列编号含义、签章内容。"
+      ],
+      "tool_path": [
+        "read_pdf",
+        "search_knowledge",
+        "search_knowledge",
+        "read_library_page",
+        "search_knowledge",
+        "commit_page"
+      ],
+      "save_rejections": 0,
+      "trace_excerpt": [
+        {
+          "tool": "read_pdf"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "1001378235",
+          "reason": "按证书编号查找是否已有同一证书知识页"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "NST Carbomig 3N 878730",
+          "reason": "按产品名与炉号查找已有资料"
+        },
+        {
+          "tool": "read_library_page",
+          "reason": "核对旧页的出具方、证书号、产品与炉号，判断是否与本次为同一资料",
+          "page_id": "K-10a789bc60410311"
+        },
+        {
+          "tool": "search_knowledge",
+          "query": "Norsk Sveiseteknikk 1001378235 Carbomig 3N 实心MAG焊丝",
+          "reason": "换用出具方与产品全称再确认是否已有本次证书页"
+        },
+        {
+          "tool": "commit_page",
+          "action": "new",
+          "target_page_id": "",
+          "decision_reason": "本次证书号 1001378235、产品 NST Carbomig 3N、炉号 878730 与库中 NST Carbomig 2N（10972205、炉号 114000）均不一致，无同身份旧页，故新建并仅作同出具方同系列关联。"
+        }
+      ],
+      "summary_sha256": "419fd986588616f0507a3e9d0b7fe78800232498362e09a505e296a087da4783",
+      "original_log_sha256": "657e923d2dd81785b271a2832f61814b9c0a57c3e364d461838866848e40fec1"
+    }
+  ]
+}
